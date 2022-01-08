@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CréActuel Paysage</title>
+</head>
+<body>
+    <nav>
+        <ul class="navlist">
+            <li class="navitem">
+                <img
+                    class="brand"
+                    src="https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/257379839_108009731705999_3630936195115123540_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=buMO9RDwqvgAX_xG1kR&_nc_ht=scontent-cdt1-1.xx&oh=00_AT-yghYsxmdb9vFBDXjQQqj0Bq3uPCZ3gMZyfvY08DxEqA&oe=61DF4663" 
+                    alt="CréActuel Paysage">
+            </li>
+            <li class="navitem">Présentation</li>
+            <li class="navitem">Réalisations</li>
+            <li class="navitem">Services</li>
+            <li class="navitem">Contact</li>
+        </ul>
+    </nav>
+
+    <section id="presentation" class="section">
+        <h2>Présentation</h2>
+        <div class="sectionContent presentationContent">
+
+        </div>
+    </section>
+    
+    <section id="realisations" class="section">
+        <h2>Réalisations</h2>
+        <div class="sectionContent realisationsContent">
+
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <h2>Services</h2>
+        <div class="sercionContent serviceContent">
+            
+        </div>
+    </section>
+    
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <div class="sectionContent contactContent">
+            <div>
+                <span class="btn">Demande d'information</span>
+            </div>
+            <div>
+                <span class="btn">Demande de devis</span>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; CréActuel Paysage 2022</p>
+    </footer>
+    
+    <script>
+        const affichagePresentation = () => {
+            fetch("presentation.json")
+                .then(response => response.json())
+                .then(json => {
+                    var image = json.img;
+                    var desc = json.desc;
+
+                    var presentation = document.querySelector('#presentation')
+                    var presentationContent = presentation.querySelector('.sectionContent');
+
+                    presentationContent.innerHTML = `
+                        <img class="presentationImg" src="${image}" alt="presentation"/>
+                        <p class="presentationText">${desc}</p>
+                    `;
+                });
+        }
+
+        const affichageRealisations = () => {
+            fetch("realisations.txt")
+                .then(response => response.text())
+                .then(data => {
+                    var rea = data.split('\n');
+
+                    var realisations = document.querySelector('#realisations')
+                    var realisationsContent = realisations.querySelector('.sectionContent');
+
+                    var carrousel = document.createElement('div')
+                    carrousel.innerHTML = data;
+                    
+                    //for(var r of rea){
+                    //    console.log(r);
+                        //carrousel.append(r);
+                    // }
+
+                    realisationsContent.append(carrousel);
+                });
+        }
+
+        affichagePresentation();
+        affichageRealisations();
+    </script>
+</body>
+</html>

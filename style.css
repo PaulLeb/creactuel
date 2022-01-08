@@ -1,0 +1,74 @@
+body{
+    background-color: #2e2c2d;
+    color: #fff;
+    font-family: sans-serif;
+}
+
+.navlist{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    padding: 0;
+}
+
+.brand{
+    width: 100%;
+}
+
+.navitem{
+    width:19%;
+}
+
+.section{
+    padding: 0 3rem;
+}
+
+/* ------------------------- Présentation --------------------------- */
+
+.presentationContent{
+    display:flex;
+}
+
+.presentationImg{
+    width: 33%;
+}
+
+.presentationText{
+    width: 66%;
+    padding: 2rem;
+}
+
+/* ------------------- Réalisations --------------------- */
+
+
+/* -------------------- Contact ------------------- */
+
+.contactContent{
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem 0;
+}
+
+.btn{
+    background: rgb(27, 117, 27);
+    padding: .3rem .5rem;
+    border-radius: .3rem;
+}
+
+.btn:hover{
+    background:rgb(23, 87, 23);
+    transition: all ease .3s;
+}
+
+/* -------------------- Footer ---------------------- */
+footer{
+    border-top: 1px solid rgba(255, 255, 255, .2);
+}
+
+footer>p{
+    text-align:center;
+    padding: .5rem;
+    opacity: .5;
+}
